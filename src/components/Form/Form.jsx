@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Form.scss';
 import Error from '../Error/Error';
 import Loading from '../Loading/Loading';
+import JobCard from '../JobCard/JobCard';
 const Form = () => {
   const [text, setText] = useState('');
   const [result, setResult] = useState('');
@@ -9,29 +10,34 @@ const Form = () => {
   const [error, setError] = useState(false);
 
   const onSubmit = (e) => {
-    e.preventDefault(); 
-    if(text === '' || text === null) {
+    e.preventDefault();
+    if (text === '' || text === null) {
       setError(true);
-      setTimeout(() => { 
-        setError(false)
-      },1000)
-    }else { 
+      setTimeout(() => {
+        setError(false);
+      }, 1000);
+    } else {
       fetchData(text);
     }
   };
 
-const fetchData = async (text) => { 
-  setLoading(true);
-  const API_URL = `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description=${text}`;
-  const res = await fetch(API_URL); 
-  const json = await res.json();
-  console.log(json);
-  setLoading(false);
-  // json.forEach((job) => (
-  //   // <JobCard job={job} key={job.id} /> 
-  // ))
-}
-
+  const fetchData = async (text, i) => {
+    setLoading(true);
+    const API_URL = `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description=${text}`;
+    const res = await fetch(API_URL);
+    const json = await res.json();
+    console.log(json);
+    setLoading(false);
+    const apiRes = json.map((job) => (
+      <JobCard
+        job={job}
+        key={job.id}
+        title={job.title}
+        desc={job.description}
+      />
+    ));
+    setResult(apiRes);
+  };
 
   const onChange = (e) => {
     setText(e.target.value ? e.target.value : '');
@@ -41,7 +47,7 @@ const fetchData = async (text) => {
     <>
       <div className="form-container">
         <div className="form-wrapper">
-          {error ? <Error />   : null}
+          {error ? <Error /> : null}
           {loading ? <Loading /> : null}
           <form onSubmit={onSubmit} className="form">
             <input
@@ -52,10 +58,11 @@ const fetchData = async (text) => {
               onChange={onChange}
               className="form-input"
             />
-            <input type="submit" value="submit" className='btn' /> 
+            <input type="submit" value="submit" className="btn" />
           </form>
         </div>
       </div>
+      {result ? result : null}
     </>
   );
 };
