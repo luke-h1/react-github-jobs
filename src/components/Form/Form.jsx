@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Form.scss';
 import Error from '../Error/Error';
+import Loading from '../Loading/Loading';
 const Form = () => {
   const [text, setText] = useState('');
   const [result, setResult] = useState('');
@@ -15,12 +16,13 @@ const Form = () => {
         setError(false)
       },1000)
     }else { 
-
+      // get the data 
+      setLoading(true);
     }
   };
 
-  const onChange = () => {
-    console.log('hello');
+  const onChange = (e) => {
+    setText(e.target.value ? e.target.value : '');
   };
 
   return (
@@ -28,6 +30,7 @@ const Form = () => {
       <div className="form-container">
         <div className="form-wrapper">
           {error ? <Error />   : null}
+          {loading ? <Loading /> : null}
           <form onSubmit={onSubmit} className="form">
             <input
               type="text"
