@@ -7,10 +7,16 @@ const JobCard = (props) => {
         <div className="job-container">
           <h1 className="job-title">{props.title}</h1>
           <div className="img-container">
-            {/* <img src={testImage} className="img" alt="company logo" /> */}
+            <img
+              src={props.companyImage}
+              className="img"
+              alt="company logo"
+              loading="lazy"
+            />
           </div>
           <div className="job-desc">
-            <p>{props.desc}</p>
+            <p> Location: {props.location ? props.location : null}</p>
+            <p> Posted On: {props.date}</p>
           </div>
         </div>
       </div>

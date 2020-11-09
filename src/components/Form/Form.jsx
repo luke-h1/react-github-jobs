@@ -28,15 +28,18 @@ const Form = () => {
     const json = await res.json();
     console.log(json);
     setLoading(false);
-    const apiRes = json.map((job) => (
+    const apiRes = json.map(job => ( 
       <JobCard
-        job={job}
-        key={job.id}
-        title={job.title}
-        desc={job.description}
-      />
-    ));
-    setResult(apiRes);
+      job={job}
+      key={job.id}
+      title={job.title}
+      desc={job.description}
+      location={job.location}
+      companyImage={job.company_logo}
+      date={job.created_at}
+    /> 
+    )); 
+   setResult(apiRes);
   };
 
   const onChange = (e) => {
@@ -62,7 +65,9 @@ const Form = () => {
           </form>
         </div>
       </div>
+      <div className='grid-container'>
       {result ? result : null}
+      </div>
     </>
   );
 };
