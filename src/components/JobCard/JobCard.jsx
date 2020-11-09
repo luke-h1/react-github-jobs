@@ -17,6 +17,16 @@ const JobCard = (props) => {
           <div className="job-desc">
             <p> Location: {props.location ? props.location : null}</p>
             <p> Posted On: {props.date}</p>
+            <p>
+              <a
+                href={props.url}
+                target="_blank"
+                rel="noreferrer"
+                className="url"
+              >
+                Company URL
+              </a>
+            </p>
           </div>
         </div>
       </div>

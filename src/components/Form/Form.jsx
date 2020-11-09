@@ -37,6 +37,7 @@ const Form = () => {
       location={job.location}
       companyImage={job.company_logo}
       date={job.created_at}
+      url={job.company_url}
     /> 
     )); 
    setResult(apiRes);
