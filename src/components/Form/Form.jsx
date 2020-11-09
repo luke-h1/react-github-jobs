@@ -16,10 +16,22 @@ const Form = () => {
         setError(false)
       },1000)
     }else { 
-      // get the data 
-      setLoading(true);
+      fetchData(text);
     }
   };
+
+const fetchData = async (text) => { 
+  setLoading(true);
+  const API_URL = `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description=${text}`;
+  const res = await fetch(API_URL); 
+  const json = await res.json();
+  console.log(json);
+  setLoading(false);
+  // json.forEach((job) => (
+  //   // <JobCard job={job} key={job.id} /> 
+  // ))
+}
+
 
   const onChange = (e) => {
     setText(e.target.value ? e.target.value : '');
