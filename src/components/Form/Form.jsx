@@ -51,7 +51,7 @@ const Form = () => {
     <>
       <div className="form-container">
         <div className="form-wrapper">
-          {error ? <Error /> : null}
+          {error ? <Error msg={'enter a correct search term'}/> : null}
           {loading ? <Loading /> : null}
           <form onSubmit={onSubmit} className="form">
             <input
@@ -67,7 +67,7 @@ const Form = () => {
         </div>
       </div>
       <div className='grid-container'>
-      {result ? result : null}
+      {result !== null && result.length > 0 ? result : null}
       </div>
     </>
   );
