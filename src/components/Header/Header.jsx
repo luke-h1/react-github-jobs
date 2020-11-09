@@ -11,9 +11,9 @@ const Header = ({ title }) => {
           <Link to="/" className="header-logo">
             <DiGithubFull className="header-icon" />
             <h1 className="header-title">{title}</h1>
-          </Link> 
-          <div className='header-container'>
-            <Link to='/about' className='header-link-item'>
+          </Link>
+          <div className="header-container">
+            <Link to="/about" className="header-link-item">
               About
             </Link>
           </div>
