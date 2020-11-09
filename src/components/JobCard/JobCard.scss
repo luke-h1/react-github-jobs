@@ -16,6 +16,8 @@
   background-color: #eee;
 }
 
+
+
 .img-container {
   margin-bottom: 3rem;
 }
@@ -35,5 +37,14 @@
   }
   a {
     text-align: center;
+  }
+}
+@media (max-width: 960px) {
+  .job-wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .job-container {
+    width: 400px;
   }
 }
