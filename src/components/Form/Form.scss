@@ -9,6 +9,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
+}
+
+
+.form { 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .form-input {
@@ -36,4 +46,20 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
+}
+
+@media(max-width: 980px){
+  .grid-container { 
+    grid-template-columns: repeat(1, 1fr);
+
+  }
+}
+
+@media(max-width: 640px){
+  .grid-container  { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }

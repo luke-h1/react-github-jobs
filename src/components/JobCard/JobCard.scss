@@ -48,3 +48,12 @@
     width: 400px;
   }
 }
+
+
+@media(max-width: 640px){
+  .job-container { 
+    margin-left: 1.2rem;
+    width: 350px;
+    height: 300px;
+  }
+}
