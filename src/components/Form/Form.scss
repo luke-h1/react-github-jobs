@@ -12,8 +12,7 @@
   margin: 0 auto;
 }
 
-
-.form { 
+.form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -48,15 +47,14 @@
   grid-gap: 10px;
 }
 
-@media(max-width: 980px){
-  .grid-container { 
+@media (max-width: 980px) {
+  .grid-container {
     grid-template-columns: repeat(1, 1fr);
-
   }
 }
 
-@media(max-width: 640px){
-  .grid-container  { 
+@media (max-width: 640px) {
+  .grid-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
